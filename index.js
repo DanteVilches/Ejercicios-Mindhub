@@ -126,5 +126,24 @@ function filtrarRealizadas(array) {
 let switchRealizadas = document.getElementById("flexSwitchCheckDefault");
 
 switchRealizadas.addEventListener("change", () => {
-	imprimirNota(filtrarRealizadas(notas), containerNotas);
+	imprimirNota(filtrarTexto(filtrarRealizadas(notas)), containerNotas);
+});
+
+let searchInput = document.getElementById("searchInput");
+
+function filtrarTexto(array) {
+	let filterInput = searchInput.value.toLowerCase().trim();
+	if (filterInput != "") {
+		return array.filter(
+			(element) =>
+				element.titulo.toLowerCase().includes(filterInput) ||
+				element.texto.toLowerCase().includes(filterInput)
+		);
+	} else {
+		return array;
+	}
+}
+
+searchInput.addEventListener("keyup", () => {
+	imprimirNota(filtrarTexto(filtrarRealizadas(notas)), containerNotas);
 });

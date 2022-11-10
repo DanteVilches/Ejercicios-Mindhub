@@ -40,6 +40,18 @@ notas.push(
 		titulo: "terminar la task",
 		texto: "nico me va a retar si no lo hago",
 		realizada: true,
+	},
+	{
+		id: 3,
+		titulo: "realizar mumuki",
+		texto: "la consola no es muy buena D:",
+		realizada: true,
+	},
+	{
+		id: 4,
+		titulo: "completar el form de asistencia",
+		texto: "lucre me va a retar si no lo hago",
+		realizada: true,
 	}
 );
 
@@ -59,7 +71,9 @@ function crearNota(element) {
 							<h5 class="card-title">${element.titulo}</h5>
 						</div>
 
-						<p class="card-text">${element.texto}</p>
+						<p class="card-text ${element.realizada ? "tachado" : " "} ">${
+		element.texto
+	}</p>
 						<a href="#" class="btn btn-danger close" onclick=borrarNota(${
 							element.id
 						})>Borrar Nota</a>

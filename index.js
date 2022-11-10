@@ -86,4 +86,7 @@ guardar.addEventListener("click", (e) => {
 	}
 });
 
-function borrarNota(id) {}
+function borrarNota(id) {
+	notas = notas.filter((element) => element.id !== id);
+	imprimirNota(notas);
+}
